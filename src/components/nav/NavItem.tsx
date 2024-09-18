@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 
 const NavItem = () => {
@@ -15,14 +14,14 @@ const NavItem = () => {
         Home
       </NavLink>
       <NavLink
-        to="/services"
+        to="/products"
         className={({ isActive }) =>
           `${
             isActive ? "text-gray-500 " : ""
           } hover:text-white hover:bg-[#1e88e5] py-1 px-3 rounded`
         }
       >
-        Services
+        Products
       </NavLink>
       <NavLink
         to="/aboutUs"
