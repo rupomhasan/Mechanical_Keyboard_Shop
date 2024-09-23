@@ -4,6 +4,7 @@ export type TProduct = {
   brand: string; 
   productsQuantity: number;
   price: number;
+  reviews?: string[]; 
   isFeatured?: boolean;
   size?: string;
 };

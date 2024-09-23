@@ -19,6 +19,7 @@ const Navbar = () => {
     dispatch(logout());
   };
 
+  console.log(user);
 
   return (
     <div className="navbar max-w-screen-xl mx-auto ">
@@ -95,7 +96,9 @@ const Navbar = () => {
             </div>
           </div>
         </div>
+
         {user ? (
+          // profile
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
@@ -103,10 +106,14 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
+                {user?.photoUrl ? (
+                  <img alt="User Profile" src={user.photoUrl} />
+                ) : (
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  />
+                )}
               </div>
             </div>
             <ul

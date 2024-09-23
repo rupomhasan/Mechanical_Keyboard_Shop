@@ -1,3 +1,4 @@
+import { TProduct } from './../../types/product.types';
 import { baseApi } from "../api/baseApi";
 
 
@@ -17,7 +18,7 @@ const productsApi = baseApi.injectEndpoints({
       })
     }),
     createProduct: builder.mutation({
-      query: ({ productInfo, file }) => {
+      query: ({ productInfo, file }: { productInfo: TProduct; file: File }) => {
         const formData = new FormData();
 
         formData.append("file", file);
