@@ -1,6 +1,6 @@
 import { IoArrowUndoSharp } from "react-icons/io5";
 import Lottie from "lottie-react";
-import loginLottie from "../../assets/Animation - 1726513647138.json";
+import loginLottie from "../../assets/lottie/Animation - 1726513647138.json";
 import LoginForm from "../../components/form/LoginForm";
 import { Link } from "react-router-dom";
 const Login = () => {

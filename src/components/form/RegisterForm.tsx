@@ -35,7 +35,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-base-200 rounded-2xl p-10 ">
+    <div className="max-w-lg mx-auto bg-base-200 rounded-2xl p-10 md:mr-5">
       <p className=" text-center text-3xl font-bold font-mono mb-4">
         Register Now
       </p>
