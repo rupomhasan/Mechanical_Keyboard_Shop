@@ -5,6 +5,7 @@ const Service = () => {
     <div className="grid  md:grid-cols-2 lg:grid-cols-4 gap-5 mx-1 my-10">
       {serviceData.map((item, idx) => (
         <div
+          key={idx}
           className={`
         ${idx === 0 && "bg-yellow-200"} 
         ${idx === 1 && "bg-[#e9effc]"}

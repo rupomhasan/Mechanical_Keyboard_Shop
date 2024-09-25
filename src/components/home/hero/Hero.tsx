@@ -18,60 +18,56 @@ const Hero = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     beforeChange: (oldIndex: number, newIndex: number) => {
-      setCurrentSlide(newIndex); // Set current slide when slide changes
+      setCurrentSlide(newIndex);
     },
   };
 
   return (
     <Slider {...settings} className="overflow-hidden mx-1">
-      {sliderData.map((item, index) => {
-        return (
-          <>
-            <div key={index} className="relative overflow-hidden group">
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-full rounded-md h-[50vh] object-cover"
-              />
-              <div className="absolute inset-0 flex flex-col justify-center items-start px-16 bg-opacity-50 text-white space-y-3">
-                {/* Only animate when this slide is active */}
-                {index === currentSlide && (
-                  <>
-                    <motion.h2
-                      initial={{ opacity: 0, y: 34 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
-                      className=" text-2xl md:text-4xl font-bold font-mono bg-[#3335] px-2 md:px-5 w-fit md:py-2 rounded-sm md:rounded-xl"
-                    >
-                      {item.name}
-                    </motion.h2>
-                    <motion.p
-                      initial={{ opacity: 0, y: 34 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.35 }}
-                      className="mb-2 hidden md:block bg-[#3335] px-2 text-lg max-w-md rounded"
-                    >
-                      {item.description}
-                    </motion.p>
-                    <motion.div
-                      initial={{ opacity: 0, y: 34 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.5 }}
-                    >
-                      <motion.button
-                        whileTap={{ scale: 1.1 }}
-                        className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-700  md:btn-sm"
-                      >
-                        {item.button}
-                      </motion.button>
-                    </motion.div>
-                  </>
-                )}
-              </div>
-            </div>
-          </>
-        );
-      })}
+      {sliderData.map((item, index) => (
+        <div key={index} className="relative overflow-hidden group">
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-full rounded-md h-[50vh] object-cover"
+          />
+          <div className="absolute inset-0 flex flex-col justify-center items-start px-16 bg-opacity-50 text-white space-y-3">
+            {/* Only animate when this slide is active */}
+            {index === currentSlide && (
+              <>
+                <motion.h2
+                  initial={{ opacity: 0, y: 34 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className=" text-2xl md:text-4xl font-bold font-mono bg-[#3335] px-2 md:px-5 w-fit md:py-2 rounded-sm md:rounded-xl"
+                >
+                  {item.name}
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 34 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.35 }}
+                  className="mb-2 hidden md:block bg-[#3335] px-2 text-lg max-w-md rounded"
+                >
+                  {item.description}
+                </motion.p>
+                <motion.div
+                  initial={{ opacity: 0, y: 34 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                >
+                  <motion.button
+                    whileTap={{ scale: 1.1 }}
+                    className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-700  md:btn-sm"
+                  >
+                    {item.button}
+                  </motion.button>
+                </motion.div>
+              </>
+            )}
+          </div>
+        </div>
+      ))}
     </Slider>
   );
 };
