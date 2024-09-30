@@ -3,11 +3,11 @@ import { whyChooseUs } from "./data";
 
 const ChooseUs = () => {
   return (
-    <div className="mt-24 px-1  ">
+    <div className=" px-1  ">
       <img
         src={img}
         alt="whyChooseUs"
-        className="rounded-t-lg max-h-[600px] w-full object-cover "
+        className="rounded-t-lg max-h-[600px] w-full   object-cover "
       />
       <div className="bg-[#071827f2] px-1 py-10 rounded-b-lg">
         <div className="md:px-7 ">
@@ -22,8 +22,8 @@ const ChooseUs = () => {
           </div>
         </div>
         <div className=" grid md:grid-cols-2  justify-between gap-10  md:m-7 items-center ">
-          {whyChooseUs?.map((item) => (
-            <div className="flex gap-3">
+          {whyChooseUs?.map((item, idx) => (
+            <div key={idx} className="flex gap-3">
               <figure>
                 <img
                   className="size-14 object-contain"

@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import FormInput from "./FormInput";
 import Form from "./Form";
 
-
 import { useCreateUserMutation } from "../../redux/features/userApi";
 import { useAppDispatch } from "../../redux/hooks";
 import { toast } from "sonner";

@@ -1,0 +1,20 @@
+[
+  {
+    "user": "64f0b6a9e64f5f001c1de932",
+    "rating": 4.5,
+    "product": "64f0b6a9e64f5f001c1de933",
+    "comment": "Great product! Very responsive keys and solid build."
+  },
+  {
+    "user": "64f0b6a9e64f5f001c1de934",
+    "rating": 3.8,
+    "product": "64f0b6a9e64f5f001c1de935",
+    "comment": "Good quality, but the switches are louder than expected."
+  },
+  {
+    "user": "64f0b6a9e64f5f001c1de936",
+    "rating": 5.0,
+    "product": "64f0b6a9e64f5f001c1de937",
+    "comment": "Amazing experience, will definitely recommend!"
+  }
+]
