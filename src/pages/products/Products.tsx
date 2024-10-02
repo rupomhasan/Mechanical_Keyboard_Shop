@@ -5,7 +5,7 @@ import ProductMain from "../../components/productsPage/ProductMain";
 const Products = () => {
   return (
     <div>
-      <ProductBanner />
+      <ProductBanner route="Products" title="Explore Our Products" />
       <div className="md:mx-2">
         <div className="drawer lg:drawer-open lg:gap-6">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

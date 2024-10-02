@@ -13,18 +13,15 @@ const ProductCard = ({ product }: { product: TProducts }) => {
       <Link to={`/product/${_id}`}>
         <img
           src={image}
-          className="size-60 object-contain  flex-grow"
-          alt="Shoes"
+          className="size-60 object-contain mx-auto  "
+          alt="keyboard"
         />
       </Link>
       <div className="card-body  bg-blue-50 rounded-b-xl">
-        <Link
-          to={`/product/${_id}`}
-          className="card-title  flex-grow text-gray-600"
-        >
+        <Link to={`/product/${_id}`} className="card-title   text-gray-600">
           {name}
         </Link>
-        <ul className="list-inside text-xs  flex-grow text-gray-600">
+        <ul className="list-inside text-xs   text-gray-600">
           <li className="flex items-center">
             <VscDebugBreakpointData className="text-xs" />
             Keyboard size : {features?.size}
@@ -46,8 +43,8 @@ const ProductCard = ({ product }: { product: TProducts }) => {
             Brand : {brand.brandName}
           </li>
         </ul>
-        <div className=" bg-gray-300 my-2 h-[1px]"></div>
-        <p className="flex  justify-center items-center text-xl text-red-600 font-semibold font-serif ">
+        <div className=" bg-gray-300 my-2 h-[1px] "></div>
+        <p className="flex  justify-center items-center text-xl text-red-600 font-semibold font-serif  ">
           {price}
           <TbCurrencyTaka />
         </p>

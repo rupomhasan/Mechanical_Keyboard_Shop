@@ -1,10 +1,10 @@
 import { TUser } from "../../../redux/features/auth/authSlice";
-import { TProduct } from "../../../types/product.types";
+import { TProducts } from "../../../types/product.types";
 
 export type TReview = {
   user: TUser;
   rating: number;
-  product: TProduct;
+  product: TProducts;
   comment: string;
   isDeleted?: boolean;
   updatedAt: Date;

@@ -31,7 +31,8 @@ const settings = {
 };
 
 const TestimonialCard = () => {
-  const { data } = useGetAllReviewQuery({});
+  const { data } = useGetAllReviewQuery({ limit: 7 });
+
   return (
     <div className="mx-1">
       <h2 className="text-3xl text-slate-600 font-bold text-center mb-8">
@@ -44,17 +45,21 @@ const TestimonialCard = () => {
               <div className="slider-item bg-blue-50 p-6 rounded-lg">
                 <figure className="flex items-center gap-4 mb-4">
                   <img
-                    className="w-16 h-16 rounded-full object-cover"
+                    className="size-1/6  rounded-full object-cover"
                     src={
-                      review.user.photoUrl
-                        ? review.user.photoUrl
+                      review?.user?.photoUrl
+                        ? review?.user?.photoUrl
                         : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                     }
-                    alt={review.user.name}
+                    alt={review?.user?.name}
                   />
                   <div>
-                    <p className="text-lg font-semibold">{review.user.name}</p>
-                    <p className="text-sm text-gray-500">{review.user.email}</p>
+                    <p className="text-lg font-semibold">
+                      {review?.user?.name}
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      {review?.user?.email}
+                    </p>
                   </div>
                 </figure>
 

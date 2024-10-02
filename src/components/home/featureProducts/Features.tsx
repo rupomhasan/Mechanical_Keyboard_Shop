@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import { useGetAllProductsQuery } from "../../../redux/features/productsApi";
 import { TProducts } from "../../../types/product.types";
 
 import Card from "./Card";
+import { IoMdArrowForward } from "react-icons/io";
 
 const Features = () => {
   const { data } = useGetAllProductsQuery({ limit: 4 });
@@ -24,9 +26,13 @@ const Features = () => {
         ))}
       </div>
       <div className="text-center">
-        <button className="btn bg-blue-500 hover:bg-blue-700 text-white my-10 px-10 ">
+        <Link
+          to="/products"
+          className="btn bg-blue-500 hover:bg-blue-700 text-white my-10 px-10 "
+        >
           Show More
-        </button>
+          <IoMdArrowForward className="text-xl"/>
+        </Link>
       </div>
     </div>
   );

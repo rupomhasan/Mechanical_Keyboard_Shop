@@ -1,16 +1,21 @@
 import { IoFilter } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 // import { useAppSelector } from "../../redux/hooks";
-import { setFilter } from "../../redux/features/product/productSlice";
+import {
+  resetFilter,
+  setFilter,
+} from "../../redux/features/product/productSlice";
 
 const ProductNav = () => {
   const dispatch = useDispatch();
-  // const limit = useAppSelector((state) => state.products.filters);
 
   return (
     <div className="flex justify-between bg-base-200 px-4 py-2 rounded">
       <div>
-        <p className="hidden lg:flex text-xl font-semibold text-gray-700">
+        <p
+          onClick={() => dispatch(resetFilter())}
+          className="hidden lg:flex text-xl font-semibold text-gray-700"
+        >
           Keyboard
         </p>
         <label

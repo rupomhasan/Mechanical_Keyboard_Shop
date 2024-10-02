@@ -29,6 +29,7 @@ export type TProducts = {
   productsQuantity: number;
   availableQuantity?: number;
   price: number;
+  specialPrice: number;
   discount?: number;
   sku: string;
   category: string;

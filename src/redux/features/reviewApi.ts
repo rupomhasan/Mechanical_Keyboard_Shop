@@ -5,14 +5,15 @@ import { TReview } from '../../types/review.types';
 const productsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllReview: builder.query({
-      query: () => ({
+      query: (arg) => ({
         url: "/reviews",
         method: "GET",
+        params: arg
       })
     }),
     getProductReview: builder.query({
       query: (productId) => ({
-        url: `/reviews/${productId}`,
+        url: `/reviews/product_reviews/${productId}`,
         method: "GET",
       })
     }),
