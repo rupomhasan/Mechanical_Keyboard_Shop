@@ -30,6 +30,7 @@ const LoginForm = () => {
       navigate("/");
       toast.success("Logged In", { id: toastId, duration: 2000 });
     } catch (error) {
+      console.log(error);
       toast.error("something went wrong", { id: toastId });
     }
   };

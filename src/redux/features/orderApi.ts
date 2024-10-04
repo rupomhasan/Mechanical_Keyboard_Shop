@@ -6,19 +6,19 @@ const productsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllOrder: builder.query({
       query: () => ({
-        url: "/order",
+        url: "/orders",
         method: "GET",
       })
     }),
     getMyOrder: builder.query({
       query: () => ({
-        url: "/order/my-order",
+        url: "/orders/my-order",
         method: "GET",
       })
     }),
     getOrder: builder.query({
       query: (orderID) => ({
-        url: `/order/${orderID}`,
+        url: `/orders/${orderID}`,
         method: "GET",
       })
     }),
@@ -27,7 +27,7 @@ const productsApi = baseApi.injectEndpoints({
 
 
         return {
-          url: "/order/create-order",
+          url: "/orders/create-order",
           method: "POST",
           body: orderInfo,
         };
@@ -37,7 +37,7 @@ const productsApi = baseApi.injectEndpoints({
       query: ({ orderInfo, orderId }: { orderInfo: TOrder, orderId: string }) => {
 
         return {
-          url: `/order/${orderId}`,
+          url: `/orders/${orderId}`,
           method: "PATCH",
           body: orderInfo,
         };
@@ -45,7 +45,7 @@ const productsApi = baseApi.injectEndpoints({
     }),
     cancelMyOrder: builder.mutation({
       query: (orderId: string) => ({
-        url: `/order/${orderId}`,
+        url: `/orders/${orderId}`,
         method: "DELETE",
       }),
     }),

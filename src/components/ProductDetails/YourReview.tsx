@@ -9,9 +9,8 @@ const YourReview = ({ id }: { id: string }) => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
 
-  const [postReview, { isError }] = usePostReviewMutation();
+  const [postReview,] = usePostReviewMutation();
 
-  console.log("isError => ", isError);
 
   const handelSubmit = async () => {
     const reviewData = {
@@ -23,12 +22,11 @@ const YourReview = ({ id }: { id: string }) => {
     console.log(reviewData);
 
     try {
-      const res = await postReview(reviewData).unwrap();
+   await postReview(reviewData).unwrap();
 
       setName("");
       setRating(0);
       setComment("");
-      console.log(res);
     } catch (error) {
       console.log("Please fill all fields correctly.");
     }

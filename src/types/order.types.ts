@@ -1,14 +1,19 @@
+
+export type TAddress = {
+  customerName: string,
+  states: string,
+  contactNo: string,
+  zipCode: string,
+  address: string,
+  note: string
+}
+
+export type TOrderCart = {
+  productId: string,
+  quantity: number
+}
+
 export type TOrder = {
-  items: [
-    { productId: '123', quantity: 2 },
-    { productId: '456', quantity: 1 }
-  ],
-  shippedAddress: {
-    customerName: 'John Doe',
-    states: 'Rangpur',
-    contactNo: '01712345678',
-    zipCode: 1234,
-    address: 'Main Street',
-    note: 'Please deliver on Tuesday'
-  }
+  items: TOrderCart[],
+  shippedAddress: TAddress
 }

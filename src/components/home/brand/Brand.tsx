@@ -39,7 +39,6 @@ const settings = {
 
 const Brand = () => {
   const { data } = useGetAllBrandQuery({});
-  console.log(data);
 
   return (
     <div className="slider-container overflow-hidden">

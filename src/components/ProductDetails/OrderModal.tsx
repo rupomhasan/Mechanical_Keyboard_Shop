@@ -1,12 +1,6 @@
-import { useDispatch } from "react-redux";
-import { addItem } from "../../redux/features/cart/cartSlice";
 import { Link } from "react-router-dom";
 
-const OrderModal = ({ id, quantity }: { id: string; quantity: number }) => {
-  const dispatch = useDispatch();
-
-  dispatch(addItem({ productId: id, quantity }));
-
+const OrderModal = ({ quantity }: { id: string; quantity: number }) => {
   return (
     <div>
       <dialog id="my_modal_2" className="modal modal-bottom sm:modal-middle">
@@ -27,13 +21,15 @@ const OrderModal = ({ id, quantity }: { id: string; quantity: number }) => {
             </form>
 
             <Link to="/cart">
-              <button className="btn btn-sm bg-white hover:bg-white border-blue-500 hover:border-blue-700 text-blue-500">
+              <button className="btn btn-sm bg-white hover:bg-white border-green-500 hover:border-green-700 text-green-500">
                 View Card
               </button>
             </Link>
-            <button className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white">
-              Confirm Order
-            </button>
+            <Link to="/checkOut">
+              <button className="btn btn-sm bg-white hover:bg-white border-blue-500 hover:border-blue-700 text-blue-500">
+                CheckOut
+              </button>
+            </Link>
           </div>
         </div>
       </dialog>

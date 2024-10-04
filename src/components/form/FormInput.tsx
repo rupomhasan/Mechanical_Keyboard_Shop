@@ -4,7 +4,7 @@ type TFormInput = {
   type: string;
   name: string;
   label?: string;
-  defaultValue?: string; 
+  defaultValue?: string;
 };
 
 const FormInput = ({ type, name, label, defaultValue = "" }: TFormInput) => {
@@ -12,7 +12,7 @@ const FormInput = ({ type, name, label, defaultValue = "" }: TFormInput) => {
     <div style={{ marginBottom: "16px" }}>
       <Controller
         name={name}
-        defaultValue={defaultValue} 
+        defaultValue={defaultValue}
         render={({ field }) => (
           <div className="space-y-2">
             {label && (
@@ -21,11 +21,13 @@ const FormInput = ({ type, name, label, defaultValue = "" }: TFormInput) => {
               </label>
             )}
             <input
-              className="w-full px-2 py-1 rounded"
+              className="w-full border px-2 py-1 rounded"
               type={type}
+              required
+              placeholder={`${name}...`}
               id={name}
               {...field}
-              value={field.value ?? ""} 
+              value={field.value ?? ""}
             />
           </div>
         )}

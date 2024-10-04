@@ -1,17 +1,14 @@
 import { useState } from "react";
 import { HiShoppingCart } from "react-icons/hi";
 import OrderModal from "./OrderModal";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../redux/features/cart/cartSlice";
+import { TProducts } from "../../types/product.types";
 
-const Quantity = ({
-  availableQuantity,
-  status,
-  id,
-}: {
-  availableQuantity: number;
-  status: string;
-  id: string;
-}) => {
+const Quantity = ({ product }: { product: TProducts }) => {
+  const { availableQuantity, status, _id } = product;
   const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
 
   const handleDecrement = () => {
     setQuantity(quantity - 1);
@@ -27,6 +24,8 @@ const Quantity = ({
     if (modal) {
       modal.showModal();
     }
+
+    dispatch(addItem({ product, quantity }));
   };
 
   return (
@@ -42,6 +41,7 @@ const Quantity = ({
         value={quantity}
         min={1}
         max={availableQuantity}
+        disabled={availableQuantity === 0}
         inputMode="numeric"
         className="border-blue-300 border-2 p-1 w-16 text-center "
         onChange={(e) => setQuantity(Number(e.target.value))}
@@ -49,7 +49,7 @@ const Quantity = ({
       <button
         className="btn  border-blue-500 btn-sm text-blue-500 text-2xl"
         onClick={handleIncrement}
-        disabled={quantity === availableQuantity}
+        disabled={quantity === availableQuantity || availableQuantity === 0}
       >
         +
       </button>
@@ -90,7 +90,7 @@ const Quantity = ({
           ""
         )}
       </>
-      <OrderModal id={id} quantity={Number(quantity) as number} />
+      <OrderModal id={_id} quantity={Number(quantity) as number} />
     </div>
   );
 };

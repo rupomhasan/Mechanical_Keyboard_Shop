@@ -6,7 +6,6 @@ import RatingComponent from "../common/RatingComponent";
 
 const ProductDisplay = ({ productData }: { productData: TProducts }) => {
   const {
-    _id,
     image,
     name,
     brand,
@@ -121,14 +120,8 @@ const ProductDisplay = ({ productData }: { productData: TProducts }) => {
               </div>
             )}
           </div>
-
           <Features features={features as TFeatures} />
-
-          <Quantity
-            id={_id as string}
-            availableQuantity={availableQuantity as number}
-            status={status}
-          />
+          <Quantity product={productData}  />
         </div>
       </div>
     </div>

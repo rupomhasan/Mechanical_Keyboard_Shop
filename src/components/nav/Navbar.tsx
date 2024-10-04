@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logout, useCurrentUser } from "../../redux/features/auth/authSlice";
 import { CgLogIn } from "react-icons/cg";
+import {
+  useCartTotalPrice,
+  useCartTotalQuantity,
+} from "../../redux/features/cart/cartSlice";
+import { TbCurrencyTaka } from "react-icons/tb";
 
 const Navbar = () => {
   const [theme, setTheme] = useState("light");
@@ -18,8 +23,10 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logout());
   };
-
+  const total = useAppSelector(useCartTotalPrice);
   console.log(user);
+
+  const cartQuantity = useAppSelector(useCartTotalQuantity);
 
   return (
     <div className="navbar max-w-screen-xl mx-auto ">
@@ -80,7 +87,9 @@ const Navbar = () => {
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                 />
               </svg>
-              <span className="badge badge-sm indicator-item">8</span>
+              <span className="badge badge-sm indicator-item">
+                {cartQuantity}
+              </span>
             </div>
           </div>
           <div
@@ -88,8 +97,13 @@ const Navbar = () => {
             className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow"
           >
             <div className="card-body">
-              <span className="text-lg font-bold">8 Items</span>
-              <span className="text-info">Subtotal: $999</span>
+              <span className="text-lg font-bold">
+                <span className="font-serif mx-1">{cartQuantity}</span>Items
+              </span>
+              <p className="flex items-center">
+                Subtotal: <TbCurrencyTaka />
+                <span className="text-info">{total}</span>
+              </p>
               <div className="card-actions">
                 <Link to="/cart">
                   <button className="btn btn-sm bg-blue-500 text-white hover:bg-blue-700 btn-block">

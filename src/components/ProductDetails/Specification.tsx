@@ -15,7 +15,7 @@ const Specification = ({ product }: { product: TProducts }) => {
 
   const { size, keys, Switch, SwitchColor, mode, battery, lighting, weight } =
     features;
-
+ 
   return (
     <div className="p-5">
       <div className="mb-5">

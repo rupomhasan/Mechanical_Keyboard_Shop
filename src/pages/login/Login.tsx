@@ -17,6 +17,7 @@ const Login = () => {
           <Lottie animationData={loginLottie} />
         </div>
         <LoginForm />
+        
       </div>
     </div>
   );

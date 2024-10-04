@@ -4,10 +4,14 @@ import { TbCurrencyTaka } from "react-icons/tb";
 import { VscDebugBreakpointData } from "react-icons/vsc";
 import { TProducts } from "../../types/product.types";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../redux/features/cart/cartSlice";
 
 const ProductCard = ({ product }: { product: TProducts }) => {
   const { price, name, features, image, status, brand, _id } = product;
+  const dispatch = useDispatch();
 
+  
   return (
     <div className="card rounded-xl card-compact bg-white  shadow-xl">
       <Link to={`/product/${_id}`}>
@@ -80,7 +84,10 @@ const ProductCard = ({ product }: { product: TProducts }) => {
         ) : (
           ""
         )}
-        <button className="btn btn-sm btn-ghost font-medium ">
+        <button
+          onClick={() => dispatch(addItem({ product, quantity: Number(1) }))}
+          className="btn btn-sm btn-ghost font-medium "
+        >
           <MdOutlineAddToPhotos />
           Add to Cart
         </button>
