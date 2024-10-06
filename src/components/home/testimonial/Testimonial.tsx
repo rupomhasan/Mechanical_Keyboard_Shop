@@ -45,7 +45,7 @@ const TestimonialCard = () => {
               <div className="slider-item bg-blue-50 p-6 rounded-lg">
                 <figure className="flex items-center gap-4 mb-4">
                   <img
-                    className="size-1/6  rounded-full object-cover"
+                    className="size-16  rounded-full object-cover"
                     src={
                       review?.user?.photoUrl
                         ? review?.user?.photoUrl

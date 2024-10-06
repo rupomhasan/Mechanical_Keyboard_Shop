@@ -7,15 +7,15 @@ import { TProducts } from "../../types/product.types";
 
 const Quantity = ({ product }: { product: TProducts }) => {
   const { availableQuantity, status, _id } = product;
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState<number>(1);
   const dispatch = useDispatch();
 
   const handleDecrement = () => {
-    setQuantity(quantity - 1);
+    setQuantity(Number(quantity - 1));
   };
 
   const handleIncrement = () => {
-    setQuantity(quantity + 1);
+    setQuantity(Number(quantity + 1));
   };
 
   const handleModal = () => {

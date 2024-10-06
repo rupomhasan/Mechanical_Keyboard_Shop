@@ -18,14 +18,11 @@ const LoginForm = () => {
   const [login] = useLoginMutation();
 
   const onSubmit = async (data: TFormInput) => {
-    console.log(data);
     const toastId = toast.loading("Logging In...");
 
     try {
       const res = await login(data).unwrap();
-      console.log(res);
       const user = verifyToken(res.data);
-      console.log("user => ", user);
       dispatch(addUser({ user, token: res.data }));
       navigate("/");
       toast.success("Logged In", { id: toastId, duration: 2000 });

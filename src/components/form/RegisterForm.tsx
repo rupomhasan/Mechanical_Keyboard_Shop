@@ -6,14 +6,19 @@ import { useCreateUserMutation } from "../../redux/features/userApi";
 import { useAppDispatch } from "../../redux/hooks";
 import { toast } from "sonner";
 import { addUser } from "../../redux/features/auth/authSlice";
-
+type TSignUP = {
+  name: string;
+  email: string;
+  password: string;
+  file: string;
+};
 const RegisterForm = () => {
   const [registerCustomer] = useCreateUserMutation();
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const handleRegister = async (data) => {
+  const handleRegister = async (data: TSignUP) => {
     const toastId = toast.loading("Sign In...");
 
     try {

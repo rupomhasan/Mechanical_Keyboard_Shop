@@ -50,7 +50,6 @@ const productsSlice = createSlice({
   }
 })
 
-console.log("initialState =>", initialState)
 
 export const { setProducts, setFilter, resetFilter
 } = productsSlice.actions;

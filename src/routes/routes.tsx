@@ -8,7 +8,9 @@ import ProductDetails from "../pages/Details/ProductDetails";
 import Cart from "../pages/cart/Cart";
 import CheckOut from "../pages/checkOut/CheckOut";
 import ProtectedRoutes from "../components/layOut/ProtectedRoutes";
-
+import DashBoard from "../components/dashBoard/DashBoard";
+import Purchase from "../components/dashBoard/purchase/Purchase";
+import UserProfile from "../components/dashBoard/userProfile/UserProfile";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +37,21 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/userProfile",
+        element: <UserProfile />,
+      },
+
+      {
+        path: "/dashBoard",
+        element: <DashBoard />,
+        children: [
+          {
+            path: "",
+            // element: <UserProfile />,
+          },
+        ],
       },
       {
         path: "/checkOut",

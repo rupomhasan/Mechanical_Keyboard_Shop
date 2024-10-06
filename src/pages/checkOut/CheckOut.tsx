@@ -15,7 +15,7 @@ const CheckOut = () => {
   const [note, setNote] = useState("");
   const allCartItems = useAppSelector(useCartItems);
   const { data: order } = useGetMyOrderQuery({});
-  const deliveryCharge = order?.data?.length === 0 ? 0 : 60;
+  const deliveryCharge = order?.data?.length === 0 ? 0 : 120;
   const navigate = useNavigate();
   const [postOrder] = usePostOrderMutation();
 
@@ -36,8 +36,12 @@ const CheckOut = () => {
     try {
       const res = await postOrder(myOrder);
       console.log(res);
-      toast.success("Order Successful");
-      navigate("/");
+      if (res.error) {
+        toast.error("something went wrong");
+      } else {
+        toast.success("Order Successful");
+        navigate("/");
+      }
     } catch (error) {
       toast.error("Something went wrong");
       console.log(error);
@@ -54,7 +58,10 @@ const CheckOut = () => {
     }, 0);
   }, [allCartItems]);
 
-  const totalAmount = useMemo(() => total + deliveryCharge, [total, deliveryCharge]);
+  const totalAmount = useMemo(
+    () => total + deliveryCharge,
+    [total, deliveryCharge]
+  );
 
   return (
     <div className=" p-2 md:p-5 font-serif">
