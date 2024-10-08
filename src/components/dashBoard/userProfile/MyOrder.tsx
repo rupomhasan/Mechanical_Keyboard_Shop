@@ -1,5 +1,6 @@
 import { TbCurrencyTaka } from "react-icons/tb";
 import OrderDetails from "./OrderDetails";
+import { Link } from "react-router-dom";
 
 const MyOrder = ({ singleOrder, idx }) => {
   const { _id, orderStatus, totalPrice, items } = singleOrder;
@@ -16,19 +17,13 @@ const MyOrder = ({ singleOrder, idx }) => {
     <tr>
       <th>{idx + 1}</th>
       <td className="hover:link hover:text-blue-500" onClick={openModal}>
-        {_id}
+        <Link to={`/orderDetails/${_id}`}> {_id}</Link>
       </td>
       <td>{orderStatus}</td>
       <td className="flex items-center">
         <TbCurrencyTaka />
         {totalPrice}
       </td>
-      <dialog
-        id="my_modal_5"
-        className="modal modal-bottom sm:modal-middle h-full"
-      >
-        <OrderDetails items={items} />
-      </dialog>
     </tr>
   );
 };

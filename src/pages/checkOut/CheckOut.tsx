@@ -37,7 +37,7 @@ const CheckOut = () => {
       const res = await postOrder(myOrder);
       console.log(res);
       if (res.error) {
-        toast.error("something went wrong");
+        toast.error(res?.error?.data?.message, { duration: 2000 });
       } else {
         toast.success("Order Successful");
         navigate("/");

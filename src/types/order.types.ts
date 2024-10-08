@@ -17,3 +17,16 @@ export type TOrder = {
   items: TOrderCart[],
   shippedAddress: TAddress
 }
+export type TOrderData = {
+  _id?: string;
+  deliveryCharge?: number;
+  email?: string;
+  isDelete?: boolean;
+  items?: TOrderCart;
+  orderStatus?: string;
+  shippedAddress?: TAddress;
+  subTotal?: number;
+  totalPrice?: number;
+  tranId?: string
+
+};

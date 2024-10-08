@@ -10,8 +10,8 @@ const userApi = baseApi.injectEndpoints({
       })
     }),
     getUser: builder.query({
-      query: (userId) => ({
-        url: `/user/${userId}`,
+      query: () => ({
+        url: `/user`,
         method: "GET",
       })
     }),
@@ -46,10 +46,14 @@ const userApi = baseApi.injectEndpoints({
       },
     }),
     deleteUser: builder.mutation({
-      query: ({ userId }) => ({
-        url: `/user/${userId}`,
-        method: "DELETE",
-      }),
+      query: ({ userId }) => {
+        console.log("userId => ", userId)
+
+        return {
+          url: `/user/${userId}`,
+          method: "DELETE"
+        }
+      },
     }),
 
   })

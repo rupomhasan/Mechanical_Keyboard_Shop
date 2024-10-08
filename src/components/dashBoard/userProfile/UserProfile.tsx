@@ -77,7 +77,7 @@ const UserProfile = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {order.map((singleOrder, idx) => (
+                      {order?.map((singleOrder, idx) => (
                         <MyOrder
                           key={idx}
                           singleOrder={singleOrder}

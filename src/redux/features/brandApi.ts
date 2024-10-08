@@ -10,24 +10,19 @@ const brandApi = baseApi.injectEndpoints({
         method: "GET",
       })
     }),
-    getSingleBrand: builder.mutation({
+    getSingleBrand: builder.query({
       query: ({ brandId }) => ({
         url: `/brand/${brandId}`,
         method: "GET",
       }),
     }),
     postBrand: builder.mutation({
-      query: ({ brandInfo, file }: { brandInfo: TBrand; file: File }) => {
-        const formData = new FormData();
-
-        formData.append("file", file);
-
-        formData.append("data", JSON.stringify(brandInfo));
-
+      query: ({ brandInfo }: { brandInfo: TBrand }) => {
+        console.log("brandInfo => ", brandInfo)
         return {
           url: "/brand",
           method: "POST",
-          body: formData,
+          body: brandInfo,
         };
       },
     }),
@@ -43,4 +38,4 @@ const brandApi = baseApi.injectEndpoints({
 })
 
 
-export const { useDeleteBrandMutation, useGetAllBrandQuery, useGetSingleBrandMutation, usePostBrandMutation } = brandApi;
+export const { useDeleteBrandMutation, useGetAllBrandQuery, useGetSingleBrandQuery, usePostBrandMutation } = brandApi;

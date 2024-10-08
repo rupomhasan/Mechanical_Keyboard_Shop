@@ -9,7 +9,6 @@ import RecommendedProducts from "../../components/ProductDetails/RecommendedProd
 
 const ProductDetails = () => {
   const { id } = useParams();
-
   const { data, isLoading, isError } = useGetProductQuery(id);
 
   if (isLoading) return <div>Loading...</div>;

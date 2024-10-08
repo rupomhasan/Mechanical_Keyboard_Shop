@@ -11,6 +11,18 @@ import ProtectedRoutes from "../components/layOut/ProtectedRoutes";
 import DashBoard from "../components/dashBoard/DashBoard";
 import Purchase from "../components/dashBoard/purchase/Purchase";
 import UserProfile from "../components/dashBoard/userProfile/UserProfile";
+import AdminRoutes from "../components/layOut/AdminRoutes";
+import AdminProfile from "../components/dashBoard/admin/AdminProfile";
+import AllProducts from "../components/dashBoard/admin/AllProducts";
+import AddProduct from "../components/dashBoard/admin/AddProduct";
+import AllReviews from "../components/dashBoard/admin/AllReviews";
+import AllBrands from "../components/dashBoard/admin/AllBrands";
+import AddBrand from "../components/dashBoard/admin/AddBrand";
+import UpdateProduct from "../components/dashBoard/admin/UpdateProduct";
+import AllOrder from "../components/dashBoard/admin/AllOrder";
+import AboutOrder from "../components/dashBoard/admin/AboutOrder";
+import OrderDetails from "../components/dashBoard/userProfile/OrderDetails";
+import UpdateBrand from "../components/dashBoard/admin/UpdateBrand";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,14 +54,54 @@ const router = createBrowserRouter([
         path: "/userProfile",
         element: <UserProfile />,
       },
+      {
+        path: "/orderDetails/:id",
+        element: <AboutOrder />,
+      },
 
       {
         path: "/dashBoard",
-        element: <DashBoard />,
+        element: (
+          <AdminRoutes>
+            <DashBoard />
+          </AdminRoutes>
+        ),
         children: [
           {
-            path: "",
-            // element: <UserProfile />,
+            path: "profile",
+            element: <AdminProfile />,
+          },
+          {
+            path: "products",
+            element: <AllProducts />,
+          },
+          {
+            path: "addProducts",
+            element: <AddProduct />,
+          },
+          {
+            path: "updateProduct/:id",
+            element: <UpdateProduct />,
+          },
+          {
+            path: "reviews",
+            element: <>All reviews </>,
+          },
+          {
+            path: "orders",
+            element: <AllOrder />,
+          },
+          {
+            path: "aboutOrder/:id",
+            element: <AboutOrder />,
+          },
+          {
+            path: "brands",
+            element: <AllBrands />,
+          },
+          {
+            path: "addBrand",
+            element: <AddBrand />,
           },
         ],
       },

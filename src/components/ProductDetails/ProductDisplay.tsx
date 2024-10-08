@@ -84,7 +84,7 @@ const ProductDisplay = ({ productData }: { productData: TProducts }) => {
             <h3 className="flex gap-1 items-center">
               Brand :
               <span className="text-gray-500 font-semibold">
-                {brand.brandName}
+                {brand?.brandName}
               </span>
             </h3>
             <h3>

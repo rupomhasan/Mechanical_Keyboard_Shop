@@ -1,5 +1,5 @@
 export type TBrand = {
-  _id: string,
+  _id?: string,
   brandName: string,
   logo: string
 }

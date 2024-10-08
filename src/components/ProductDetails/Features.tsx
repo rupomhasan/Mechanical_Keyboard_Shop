@@ -1,9 +1,8 @@
-import React from "react";
 import { TFeatures } from "../../types/product.types";
 
 const Features = ({ features }: { features: TFeatures }) => {
   const { size, keys, battery, weight } =
-    features;
+    features || {};
   return (
     <div>
       <div>

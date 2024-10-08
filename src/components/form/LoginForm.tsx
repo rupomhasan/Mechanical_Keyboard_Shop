@@ -4,7 +4,7 @@ import FormInput from "./FormInput";
 import { useLoginMutation } from "../../redux/features/auth/authApi";
 import { useAppDispatch } from "../../redux/hooks";
 import { verifyToken } from "../../utils/verifyToken";
-import { addUser } from "../../redux/features/auth/authSlice";
+import { addUser, logout } from "../../redux/features/auth/authSlice";
 import { toast } from "sonner";
 
 export type TFormInput = {
@@ -22,13 +22,20 @@ const LoginForm = () => {
 
     try {
       const res = await login(data).unwrap();
+
       const user = verifyToken(res.data);
+      console.log("res => ", res);
       dispatch(addUser({ user, token: res.data }));
+
+      if (res.error) {
+        toast.error(res?.error?.data?.message);
+        dispatch(logout());
+      }
+
       navigate("/");
       toast.success("Logged In", { id: toastId, duration: 2000 });
     } catch (error) {
-      console.log(error);
-      toast.error("something went wrong", { id: toastId });
+      toast.error(error?.data?.message, { id: toastId });
     }
   };
 

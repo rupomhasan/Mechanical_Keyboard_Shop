@@ -1,8 +1,8 @@
-import { TOrder } from './../../types/order.types';
+import { TOrder, TOrderData } from './../../types/order.types';
 import { baseApi } from "../api/baseApi";
 
 
-const productsApi = baseApi.injectEndpoints({
+const OrderApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllOrder: builder.query({
       query: () => ({
@@ -34,7 +34,7 @@ const productsApi = baseApi.injectEndpoints({
       },
     }),
     updateOrder: builder.mutation({
-      query: ({ orderInfo, orderId }: { orderInfo: TOrder, orderId: string }) => {
+      query: ({ orderInfo, orderId }: { orderInfo: TOrderData, orderId: string }) => {
 
         return {
           url: `/orders/${orderId}`,
@@ -54,4 +54,4 @@ const productsApi = baseApi.injectEndpoints({
 })
 
 
-export const { useCancelMyOrderMutation, useGetAllOrderQuery, useGetMyOrderQuery, useGetOrderQuery, usePostOrderMutation, useUpdateOrderMutation } = productsApi;
+export const { useCancelMyOrderMutation, useGetAllOrderQuery, useGetMyOrderQuery, useGetOrderQuery, usePostOrderMutation, useUpdateOrderMutation } = OrderApi;

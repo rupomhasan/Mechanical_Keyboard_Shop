@@ -12,7 +12,7 @@ const ProductMain = () => {
   const { data, isLoading } = useGetAllProductsQuery(filters);
 
   return (
-    <>
+  <>
       {isLoading ? (
         <div className="flex justify-center items-center w-full h-screen fixed top-0 left-0">
           <p className="loading loading-spinner loading-md text-blue-500"></p>

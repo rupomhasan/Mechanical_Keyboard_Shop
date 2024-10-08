@@ -18,6 +18,7 @@ const customBaseQuery = async (args, api, extraOptions) => {
   // Perform the initial request
   let result = await baseQuery(args, api, extraOptions);
 
+  console.log("result => ", result)
   if (result?.error?.status === 401) {
     try {
       const refreshResponse = await fetch(`http://localhost:5000/api/auth/refresh-token`, {

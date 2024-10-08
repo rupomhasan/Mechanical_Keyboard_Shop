@@ -5,27 +5,35 @@ import {
   resetFilter,
   setFilter,
 } from "../../redux/features/product/productSlice";
+import { useLocation } from "react-router-dom";
 
 const ProductNav = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   return (
     <div className="flex justify-between bg-base-200 px-4 py-2 rounded">
-      <div>
-        <p
-          onClick={() => dispatch(resetFilter())}
-          className="hidden lg:flex text-xl font-semibold text-gray-700"
-        >
+      {location.pathname === "/products" ? (
+        <div>
+          <p
+            onClick={() => dispatch(resetFilter())}
+            className="hidden lg:flex text-xl font-semibold text-gray-700"
+          >
+            Keyboard
+          </p>
+          <label
+            htmlFor="my-drawer-2"
+            className="btn btn-sm btn-ghost  hover:text-blue-700 font-serif drawer-button lg:hidden "
+          >
+            <IoFilter />
+            Filter
+          </label>
+        </div>
+      ) : (
+        <h2 className="text-xl font-serif font-semibold text-blue-600">
           Keyboard
-        </p>
-        <label
-          htmlFor="my-drawer-2"
-          className="btn btn-sm btn-ghost  hover:text-blue-700 font-serif drawer-button lg:hidden "
-        >
-          <IoFilter />
-          Filter
-        </label>
-      </div>
+        </h2>
+      )}
       <div className=" hidden md:flex gap-6 ">
         <div className=" md:flex items-center">
           <label className=" font-mono  font-semibold text-gray-700 mx-3">

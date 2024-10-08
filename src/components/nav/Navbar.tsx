@@ -1,6 +1,6 @@
 import { useState } from "react";
 import NavItem from "./NavItem";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logout, useCurrentUser } from "../../redux/features/auth/authSlice";
 import { CgLogIn } from "react-icons/cg";
@@ -12,6 +12,8 @@ import { TbCurrencyTaka } from "react-icons/tb";
 
 const Navbar = () => {
   const [theme, setTheme] = useState("light");
+
+  // Toggle Theme
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
 
@@ -20,9 +22,12 @@ const Navbar = () => {
   };
   const user = useAppSelector(useCurrentUser);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const handleLogout = () => {
     dispatch(logout());
+    navigate("/");
   };
+
   const total = useAppSelector(useCartTotalPrice);
 
   const cartQuantity = useAppSelector(useCartTotalQuantity);
@@ -137,12 +142,23 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <Link to="/userProfile" className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </Link>
-              </li>
+              {user?.role === "Admin" ? (
+                <>
+                  <li>
+                    <Link to="/dashBoard/profile" className="justify-between">
+                      Profile
+                      <span className="badge">New</span>
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <Link to="/userProfile" className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </Link>
+                </li>
+              )}
               <li>
                 <a>Settings</a>
               </li>

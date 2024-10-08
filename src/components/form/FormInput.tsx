@@ -7,7 +7,8 @@ type TFormInput = {
   defaultValue?: string;
 };
 
-const FormInput = ({ type, name, label, defaultValue = "" }: TFormInput) => {
+const FormInput = ({ type, name, label, defaultValue }: TFormInput) => {
+  console.log(defaultValue);
   return (
     <div style={{ marginBottom: "16px" }}>
       <Controller
@@ -23,11 +24,10 @@ const FormInput = ({ type, name, label, defaultValue = "" }: TFormInput) => {
             <input
               className="w-full border px-2 py-1 rounded"
               type={type}
-              required
-              placeholder={`${name}...`}
               id={name}
               {...field}
-              value={field.value ?? ""}
+              value={field.value || ""}
+              placeholder={`${name}...`}
             />
           </div>
         )}

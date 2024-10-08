@@ -19,32 +19,24 @@ const productsApi = baseApi.injectEndpoints({
       })
     }),
     createProduct: builder.mutation({
-      query: ({ productInfo, file }: { productInfo: TProducts; file: File }) => {
-        const formData = new FormData();
+      query: ({ productInfo }: { productInfo: TProducts }) => {
 
-        formData.append("file", file);
 
-        formData.append("data", JSON.stringify(productInfo));
 
         return {
           url: "/products",
           method: "POST",
-          body: formData,
+          body: productInfo,
         };
       },
     }),
     updateProduct: builder.mutation({
-      query: ({ productInfo, file, productId }) => {
-        const formData = new FormData();
-
-        formData.append("file", file);
-
-        formData.append("data", JSON.stringify(productInfo));
-
+      query: ({ productInfo, productId }) => {
+        console.log(productId, productInfo)
         return {
           url: `/products/${productId}`,
           method: "PATCH",
-          body: formData,
+          body: productInfo,
         };
       },
     }),
