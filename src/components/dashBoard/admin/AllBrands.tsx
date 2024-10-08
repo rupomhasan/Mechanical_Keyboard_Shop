@@ -1,7 +1,3 @@
-import { GrEdit } from "react-icons/gr";
-
-import { FaEye } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import {
   useDeleteBrandMutation,
   useGetAllBrandQuery,
@@ -25,7 +21,7 @@ const AllOrder = () => {
   return (
     <div className="mx-2">
       <div>
-        <h3 className="text-2xl my-4 text-center font-bold text-blue-500 font-serif">
+        <h3 className="text-3xl my-4 text-center font-bold text-blue-500 font-serif">
           All brands
         </h3>
         {isLoading ? (

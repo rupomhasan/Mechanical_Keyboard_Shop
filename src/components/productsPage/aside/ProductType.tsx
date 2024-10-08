@@ -8,7 +8,6 @@ const ProductType = () => {
   const [isTypeOpen, setIsTypeOpen] = useState(false);
   const dispatch = useDispatch();
   const filters = useSelector((state: RootState) => state.products.filters);
-  console.log(filters);
 
   const handleCheckboxChange = (type: string, isChecked: boolean) => {
     const currentTypes = new Set(filters.searchTerm.split(",").filter(Boolean));

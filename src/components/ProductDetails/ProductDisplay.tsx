@@ -121,7 +121,7 @@ const ProductDisplay = ({ productData }: { productData: TProducts }) => {
             )}
           </div>
           <Features features={features as TFeatures} />
-          <Quantity product={productData}  />
+          <Quantity product={productData} />
         </div>
       </div>
     </div>

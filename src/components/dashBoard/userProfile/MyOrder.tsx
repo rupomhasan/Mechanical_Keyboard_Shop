@@ -1,9 +1,8 @@
 import { TbCurrencyTaka } from "react-icons/tb";
-import OrderDetails from "./OrderDetails";
 import { Link } from "react-router-dom";
 
 const MyOrder = ({ singleOrder, idx }) => {
-  const { _id, orderStatus, totalPrice, items } = singleOrder;
+  const { _id, orderStatus, totalPrice } = singleOrder;
 
   const openModal = () => {
     const modal = document.getElementById("my_modal_5") as HTMLDialogElement;

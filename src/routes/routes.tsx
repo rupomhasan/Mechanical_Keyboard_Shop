@@ -21,12 +21,14 @@ import AddBrand from "../components/dashBoard/admin/AddBrand";
 import UpdateProduct from "../components/dashBoard/admin/UpdateProduct";
 import AllOrder from "../components/dashBoard/admin/AllOrder";
 import AboutOrder from "../components/dashBoard/admin/AboutOrder";
-import OrderDetails from "../components/dashBoard/userProfile/OrderDetails";
-import UpdateBrand from "../components/dashBoard/admin/UpdateBrand";
+
+import AboutUs from "../pages/aboutUs/AboutUs";
+import ErrorPage from "../components/error/ErrorPage";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -37,11 +39,10 @@ const router = createBrowserRouter([
         element: <Products />,
       },
       {
-        path: "/about",
+        path: "/aboutUs",
+        element: <AboutUs />,
       },
-      {
-        path: "/contact",
-      },
+
       {
         path: "/product/:id",
         element: <ProductDetails />,
@@ -83,10 +84,7 @@ const router = createBrowserRouter([
             path: "updateProduct/:id",
             element: <UpdateProduct />,
           },
-          {
-            path: "reviews",
-            element: <>All reviews </>,
-          },
+
           {
             path: "orders",
             element: <AllOrder />,

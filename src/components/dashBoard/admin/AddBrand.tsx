@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Form from "../../form/Form";
 import FormInput from "../../form/FormInput";
 import { usePostBrandMutation } from "../../../redux/features/brandApi";
@@ -23,7 +22,7 @@ const AddBrand = () => {
 
   return (
     <div className="flex flex-col items-center justify-center p-6 max-w-md mx-auto bg-white shadow-lg rounded-lg">
-      <h2 className="text-2xl font-bold mb-6  font-serif text-gray-800">
+      <h2 className="text-3xl font-bold mb-6  font-serif text-blue-500">
         Add Brand
       </h2>
       <Form onSubmit={handleSubmit}>
@@ -33,7 +32,7 @@ const AddBrand = () => {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300"
+          className="w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300"
         >
           Add Brand
         </button>

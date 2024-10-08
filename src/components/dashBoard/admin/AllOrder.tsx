@@ -45,7 +45,7 @@ const AllOrder = () => {
   return (
     <div className="mx-2">
       <div>
-        <h3 className="text-2xl my-4 text-center font-bold text-blue-500 font-serif">
+        <h3 className="text-3xl my-4 text-center font-bold text-blue-500 font-serif">
           All Orders
         </h3>
         {isLoading ? (
@@ -78,9 +78,15 @@ const AllOrder = () => {
                       <td>
                         {/* Status select dropdown */}
                         <select
-                          value={selectedStatus[item?._id] || item.orderStatus}
+                          value={
+                            selectedStatus[item?._id as string] ||
+                            item.orderStatus
+                          }
                           onChange={(e) =>
-                            handleStatusChange(item._id, e.target.value)
+                            handleStatusChange(
+                              item._id as string,
+                              e.target.value
+                            )
                           }
                           className="select select-bordered select-sm"
                         >
@@ -94,7 +100,9 @@ const AllOrder = () => {
                         <button className="btn btn-sm border-blue-600 text-blue-500 hover:bg-blue-500 hover:text-white">
                           <GrUpdate
                             className="text-xl  "
-                            onClick={() => handleUpdateStatus(item._id)} // Update on click
+                            onClick={() =>
+                              handleUpdateStatus(item?._id as string)
+                            } // Update on click
                           />
                         </button>
                       </td>

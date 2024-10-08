@@ -16,7 +16,7 @@ const AddProduct = () => {
   const [status, setStatus] = useState("instock");
 
   const handleSubmit = async (data) => {
-    console.log({status , type});
+    console.log({ status, type });
 
     const {
       name,
@@ -88,7 +88,7 @@ const AddProduct = () => {
   return (
     <div className="">
       <div>
-        <h3 className="text-2xl font-bold font-serif text-blue-500  mt-10">
+        <h3 className="text-3xl text-center font-bold font-serif text-blue-500  mt-10">
           Add new product
         </h3>
       </div>

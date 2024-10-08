@@ -40,7 +40,7 @@ const NavItem = () => {
 
       {user?.role === "Admin" && (
         <NavLink
-          to="/dashBoard"
+          to="/dashBoard/profile"
           className={({ isActive }) =>
             `${
               isActive ? "text-gray-500 " : ""

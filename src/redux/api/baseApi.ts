@@ -3,7 +3,7 @@ import { RootState } from "../store";
 import { addUser, logout } from "../features/auth/authSlice";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:5000/api",
+  baseUrl: "https://mechanical-keyboard-shop-server-chi.vercel.app/api",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token
@@ -21,7 +21,7 @@ const customBaseQuery = async (args, api, extraOptions) => {
   console.log("result => ", result)
   if (result?.error?.status === 401) {
     try {
-      const refreshResponse = await fetch(`http://localhost:5000/api/auth/refresh-token`, {
+      const refreshResponse = await fetch(`https://mechanical-keyboard-shop-server-chi.vercel.app//api/auth/refresh-token`, {
         method: "POST",
         credentials: "include",
       });

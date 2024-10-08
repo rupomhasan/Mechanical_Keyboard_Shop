@@ -27,8 +27,6 @@ const AdminProfile = () => {
     }
   };
 
-  console.log(users);
-
   return (
     <div>
       {isLoading ? (
@@ -97,7 +95,7 @@ const AdminProfile = () => {
                       </thead>
                       <tbody>
                         {users?.data?.map((user: TUser, idx: string) => (
-                          <tr className=" hover:bg-base-200">
+                          <tr key={idx} className=" hover:bg-base-200">
                             <th>{idx + 1}</th>
                             <th>{user.name}</th>
                             <th>{user.role}</th>

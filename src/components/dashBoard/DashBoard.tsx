@@ -8,7 +8,7 @@ const DashBoard = () => {
   return (
     <div>
       {/* Button to open the drawer */}
-      <div className="ml-5">
+      <div className="mb-5 ml-5">
         <button
           className="btn btn-sm border-blue-500 text-blue-600"
           onClick={() => setIsOpen(true)}
@@ -21,7 +21,7 @@ const DashBoard = () => {
       <div
         className={`fixed top-0 left-0 z-40  h-screen p-4 overflow-y-auto transition-transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } w-64 bg-base-200`}
+        } w-64 bg-base-200 `}
         aria-labelledby="drawer-navigation-label"
       >
         <h5 className="text-base font-semibold text-gray-500 uppercase ">

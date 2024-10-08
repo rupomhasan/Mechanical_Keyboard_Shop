@@ -8,7 +8,6 @@ type TFormInput = {
 };
 
 const FormInput = ({ type, name, label, defaultValue }: TFormInput) => {
-  console.log(defaultValue);
   return (
     <div style={{ marginBottom: "16px" }}>
       <Controller
