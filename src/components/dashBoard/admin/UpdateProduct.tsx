@@ -4,13 +4,31 @@ import {
   useGetProductQuery,
   useUpdateProductMutation,
 } from "../../../redux/features/productsApi";
-import { TProducts } from "../../../types/product.types";
+import { TFeatures, TProducts } from "../../../types/product.types";
 import { toast } from "sonner";
 import { useParams } from "react-router-dom";
 import { TBrand } from "../../../types/brand.types";
 import FormInput from "../../form/FormInput";
 import Form from "../../form/Form";
-
+type TProductData = {
+  name: string;
+  image: string;
+  quantity: number;
+  price: number;
+  discount?: number;
+  width: number;
+  height: number;
+  length: number;
+  weight: number;
+  keys?: number;
+  battery?: string;
+  mode?: string;
+  connectivity?: string;
+  lighting?: boolean;
+  Switch?: string;
+  SwitchLifecycle?: string;
+  size?: string;
+};
 const UpdateProduct = () => {
   const { id } = useParams();
 
@@ -23,7 +41,7 @@ const UpdateProduct = () => {
   const [type, setType] = useState(product?.data?.type);
   const [status, setStatus] = useState(product?.data?.status);
 
-  const handleSubmit = async (data) => {
+  const handleSubmit = async (data: TProductData) => {
     const {
       name,
       image,
@@ -50,14 +68,14 @@ const UpdateProduct = () => {
       height: Number(height),
     };
 
-    const features = {
+    const features: TFeatures = {
       size,
       keys: Number(keys),
       SwitchLifecycle,
       Switch,
       mode,
       battery,
-      lighting,
+      lighting: String(lighting),
       weight: String(weight),
     };
 

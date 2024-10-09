@@ -40,7 +40,7 @@ const Pagination = () => {
           <div>
             {Array(totalPage)
               .fill(0)
-              .map((item, idx) => {
+              .map((idx) => {
                 const pageNumber = idx + 1;
 
                 return (

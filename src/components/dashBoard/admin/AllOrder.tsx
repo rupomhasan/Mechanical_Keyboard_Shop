@@ -5,7 +5,7 @@ import {
 } from "../../../redux/features/orderApi";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { GrUpdate } from "react-icons/gr";
-import { TOrderData } from "../../../types/order.types";
+import { TOrder } from "../../../types/order.types";
 import { toast } from "sonner";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -67,7 +67,7 @@ const AllOrder = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {orders?.data.map((item: TOrderData, idx: number) => (
+                  {orders?.data.map((item: TOrder, idx: number) => (
                     <tr key={idx} className="hover:bg-base-200">
                       <th>{idx + 1}</th>
                       <td>{item?.email}</td>

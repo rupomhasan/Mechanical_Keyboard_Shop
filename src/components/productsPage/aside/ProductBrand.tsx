@@ -51,8 +51,10 @@ const ProductBrand = () => {
               <label key={brand._id} className="label cursor-pointer">
                 <input
                   type="checkbox"
-                  checked={selectedBrandIds?.includes(brand._id)} // Check if the brand is selected
-                  onChange={(e) => handleChecked(brand._id, e.target.checked)} // Toggle selection on change
+                  checked={selectedBrandIds?.includes(brand._id as string)} // Check if the brand is selected
+                  onChange={(e) =>
+                    handleChecked(brand._id as string, e.target.checked)
+                  } // Toggle selection on change
                   className="checkbox border-blue-500 [--chkbg:theme(colors.blue.500)] [--chkfg:white]"
                 />
                 <span className="label-text">{brand.brandName}</span>

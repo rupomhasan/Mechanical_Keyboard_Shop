@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { useMyProfileQuery } from "../../../redux/features/userApi";
 import MyOrder from "./MyOrder";
+import { TOrder } from "../../../types/order.types";
 
 const UserProfile = () => {
   const { data, isLoading } = useMyProfileQuery({});
@@ -77,7 +78,7 @@ const UserProfile = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {order?.map((singleOrder, idx) => (
+                      {order?.map((singleOrder: TOrder, idx: number) => (
                         <MyOrder
                           key={idx}
                           singleOrder={singleOrder}

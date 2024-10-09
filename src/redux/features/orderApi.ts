@@ -1,4 +1,4 @@
-import { TOrder, TOrderData } from './../../types/order.types';
+import {  TOrder } from './../../types/order.types';
 import { baseApi } from "../api/baseApi";
 
 
@@ -34,7 +34,7 @@ const OrderApi = baseApi.injectEndpoints({
       },
     }),
     updateOrder: builder.mutation({
-      query: ({ orderInfo, orderId }: { orderInfo: TOrderData, orderId: string }) => {
+      query: ({ orderInfo, orderId }: { orderInfo: TOrder, orderId: string }) => {
 
         return {
           url: `/orders/${orderId}`,

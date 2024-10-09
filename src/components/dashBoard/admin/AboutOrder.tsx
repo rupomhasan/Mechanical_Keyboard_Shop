@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useGetOrderQuery } from "../../../redux/features/orderApi";
 import { TbCurrencyTaka } from "react-icons/tb";
-import { TOrder, TOrderData } from "../../../types/order.types";
+import {  TOrderItem } from "../../../types/order.types";
 
 const AboutOrder = () => {
   const { id } = useParams();
@@ -74,7 +74,7 @@ const AboutOrder = () => {
       <div className="bg-white shadow-md p-6 rounded-lg mb-6">
         <h4 className="font-bold text-lg text-gray-700 mb-4">Items</h4>
         <div className="space-y-4">
-          {order.data.items?.map((item: TOrderData, idx: string) => (
+          {order.data.items?.map((item: TOrderItem, idx: string) => (
             <div
               key={idx}
               className="flex justify-between items-center bg-gray-50 p-4 rounded-lg"
@@ -86,7 +86,7 @@ const AboutOrder = () => {
                     className="hover:link  hover:text-green-500"
                     to={`/product/${item.productId}`}
                   >
-                    {item._id}
+                    {item.productId}
                   </Link>
                 </p>
                 <p>

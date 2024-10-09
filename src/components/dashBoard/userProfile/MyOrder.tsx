@@ -1,7 +1,11 @@
 import { TbCurrencyTaka } from "react-icons/tb";
 import { Link } from "react-router-dom";
-
-const MyOrder = ({ singleOrder, idx }) => {
+import { TOrder } from "../../../types/order.types";
+type MyOrderProps = {
+  singleOrder: TOrder;
+  idx: number;
+};
+const MyOrder: React.FC<MyOrderProps> = ({ singleOrder, idx }) => {
   const { _id, orderStatus, totalPrice } = singleOrder;
 
   const openModal = () => {

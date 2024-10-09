@@ -4,16 +4,16 @@ import {
   SubmitHandler,
   useForm,
   UseFormReturn,
+  FieldValues,
 } from "react-hook-form";
-import { TFormInput } from "./LoginForm";
 
-type TFormProps = {
+type TFormProps<T extends FieldValues> = {
   children: ReactNode;
-  onSubmit: SubmitHandler<TFormInput>;
+  onSubmit: SubmitHandler<T>;
 };
 
-const Form = ({ children, onSubmit }: TFormProps) => {
-  const methods: UseFormReturn<TFormInput> = useForm<TFormInput>();
+const Form = <T extends FieldValues>({ children, onSubmit }: TFormProps<T>) => {
+  const methods: UseFormReturn<T> = useForm<T>();
 
   return (
     <FormProvider {...methods}>

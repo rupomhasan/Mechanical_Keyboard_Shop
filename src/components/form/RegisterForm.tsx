@@ -10,7 +10,7 @@ type TSignUP = {
   name: string;
   email: string;
   password: string;
-  file: string;
+  file: File | null;
 };
 const RegisterForm = () => {
   const [registerCustomer] = useCreateUserMutation();

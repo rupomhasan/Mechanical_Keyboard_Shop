@@ -17,7 +17,7 @@ const Hero = () => {
     autoplay: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    beforeChange: (oldIndex: number, newIndex: number) => {
+    beforeChange: (newIndex: number) => {
       setCurrentSlide(newIndex);
     },
   };

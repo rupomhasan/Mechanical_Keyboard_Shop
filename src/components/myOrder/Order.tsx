@@ -1,7 +1,11 @@
+import { TAddress } from "../../types/order.types";
 import Form from "../form/Form";
 import FormInput from "../form/FormInput";
-
-const Order = ({ onsubmit, setNote }) => {
+interface OrderProps {
+  onsubmit: (info: TAddress) => void;
+  setNote: (value: string) => void;
+}
+const Order: React.FC<OrderProps> = ({ onsubmit, setNote }) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-2xl font-semibold text-gray-700 mb-4">

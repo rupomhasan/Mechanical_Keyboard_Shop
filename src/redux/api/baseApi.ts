@@ -1,6 +1,8 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { BaseQueryApi, createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { RootState } from "../store";
 import { addUser, logout } from "../features/auth/authSlice";
+type ArgsType = string | { url: string; [key: string]: any };
 
 const baseQuery = fetchBaseQuery({
   baseUrl: "https://mechanical-keyboard-shop-server-chi.vercel.app/api",
@@ -14,9 +16,8 @@ const baseQuery = fetchBaseQuery({
 })
 
 
-const customBaseQuery = async (args, api, extraOptions) => {
-  // Perform the initial request
-  let result = await baseQuery(args, api, extraOptions);
+const customBaseQuery = async (args: ArgsType, api: BaseQueryApi, extraOptions: Record<string, any>) => {
+  let result = await baseQuery(args , api, extraOptions);
 
   console.log("result => ", result)
   if (result?.error?.status === 401) {

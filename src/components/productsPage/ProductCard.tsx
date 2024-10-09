@@ -11,7 +11,6 @@ const ProductCard = ({ product }: { product: TProducts }) => {
   const { price, name, features, image, status, brand, _id } = product;
   const dispatch = useDispatch();
 
-  
   return (
     <div className="card rounded-xl card-compact bg-white  shadow-xl">
       <Link to={`/product/${_id}`}>
@@ -44,7 +43,7 @@ const ProductCard = ({ product }: { product: TProducts }) => {
           </li>
           <li className="flex items-center">
             <VscDebugBreakpointData className="text-xs" />
-            Brand : {brand.brandName}
+            Brand : {brand?.brandName}
           </li>
         </ul>
         <div className=" bg-gray-300 my-2 h-[1px] "></div>

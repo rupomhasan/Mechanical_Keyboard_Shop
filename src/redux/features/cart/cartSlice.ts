@@ -3,6 +3,7 @@ import { RootState } from "../../store"
 import { TProducts } from "../../../types/product.types"
 
 export type TCart = {
+  
   product: TProducts,
   quantity: number
 

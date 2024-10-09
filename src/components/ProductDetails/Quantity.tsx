@@ -6,7 +6,7 @@ import { addItem } from "../../redux/features/cart/cartSlice";
 import { TProducts } from "../../types/product.types";
 
 const Quantity = ({ product }: { product: TProducts }) => {
-  const { availableQuantity, status, _id } = product;
+  const { availableQuantity, status } = product;
   const [quantity, setQuantity] = useState<number>(1);
   const dispatch = useDispatch();
 
@@ -90,7 +90,7 @@ const Quantity = ({ product }: { product: TProducts }) => {
           ""
         )}
       </>
-      <OrderModal id={_id} quantity={Number(quantity) as number} />
+      <OrderModal quantity={Number(quantity) as number} />
     </div>
   );
 };

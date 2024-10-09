@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const OrderModal = ({ quantity }: { id: string; quantity: number }) => {
+const OrderModal = ({ quantity }: {  quantity: number }) => {
   return (
     <div>
       <dialog id="my_modal_2" className="modal modal-bottom sm:modal-middle">

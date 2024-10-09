@@ -14,8 +14,8 @@ const Specification = ({ product }: { product: TProducts }) => {
   } = product;
 
   const { size, keys, Switch, SwitchColor, mode, battery, lighting, weight } =
-    features;
- 
+    features || {};
+
   return (
     <div className="p-5">
       <div className="mb-5">
@@ -79,7 +79,7 @@ const Specification = ({ product }: { product: TProducts }) => {
           </li>
           <li>
             <span className="font-semibold">Dimensions:</span>{" "}
-            {dimensions.height}x{dimensions.length}x{dimensions.width}mm
+            {dimensions?.height}x{dimensions?.length}x{dimensions?.width}mm
           </li>
         </ul>
       </div>

@@ -1,5 +1,6 @@
+import { TCart } from "../../redux/features/cart/cartSlice";
 
-const OrderCard = ({ item }) => {
+const OrderCard = ({ item }: { item: TCart }) => {
   const { product, quantity } = item;
   const { name, status, price, specialPrice } = product || {};
 

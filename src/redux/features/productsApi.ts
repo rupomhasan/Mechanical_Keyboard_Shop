@@ -1,5 +1,5 @@
 
-import { TProducts } from "../../types/product.types";
+import { TAddProducts } from "../../types/product.types";
 import { baseApi } from "../api/baseApi";
 
 
@@ -19,7 +19,7 @@ const productsApi = baseApi.injectEndpoints({
       })
     }),
     createProduct: builder.mutation({
-      query: ({ productInfo }: { productInfo: TProducts }) => {
+      query: ({ productInfo }: { productInfo: TAddProducts }) => {
 
 
 

@@ -11,6 +11,7 @@ export type TFeatures = {
   keys?: number;
   SwitchLifecycle?: string;
   Switch?: string;
+  SwitchColor?: string,
   mode?: string;
   battery?: string;
   lighting?: string;
@@ -22,7 +23,7 @@ export type TProducts = {
   name: string;
   description: string;
   image?: string;
-  brand: TBrand | string,
+  brand: TBrand,
   type: string,
   status: string,
   productsQuantity: number;
@@ -34,8 +35,36 @@ export type TProducts = {
   category?: string;
   reviews?: string
   tags?: string[];
-  connectivity: string;
-  dimensions: TDimensions;
+  connectivity?: string;
+  dimensions?: TDimensions;
+  averageRating?: number;
+  numberOfReviews?: number;
+  features?: TFeatures;
+  slug?: string,
+  isDeleted?: boolean,
+};
+
+
+
+export type TAddProducts = {
+  _id?: string
+  name: string;
+  description: string;
+  image?: string;
+  brand: string,
+  type: string,
+  status: string,
+  productsQuantity: number;
+  availableQuantity?: number;
+  price: number;
+  specialPrice?: number;
+  discount?: number;
+  sku?: string;
+  category?: string;
+  reviews?: string
+  tags?: string[];
+  connectivity?: string;
+  dimensions?: TDimensions;
   averageRating?: number;
   numberOfReviews?: number;
   features?: TFeatures;

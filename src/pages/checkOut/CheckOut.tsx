@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import Order from "../../components/myOrder/Order";
 import { useAppSelector } from "../../redux/hooks";
-import { useCartItems } from "../../redux/features/cart/cartSlice";
+import { TCart, useCartItems } from "../../redux/features/cart/cartSlice";
 import OrderCard from "../../components/myOrder/OrderCard";
 import {
   useGetMyOrderQuery,
@@ -24,10 +24,11 @@ const CheckOut = () => {
     console.log(info);
 
     const orderItems = allCartItems.map((item) => ({
-      productId: item.product._id,
+      productId: item.product._id ?? "", 
       quantity: item.quantity,
+      price: item.product.specialPrice ?? item.product.price 
     }));
-
+    
     const myOrder: TOrder = {
       items: orderItems,
       shippedAddress: info,
@@ -37,7 +38,7 @@ const CheckOut = () => {
       const res = await postOrder(myOrder);
       console.log(res);
       if (res.error) {
-        toast.error(res?.error?.data?.message, { duration: 2000 });
+        toast.error("something went wrong", { duration: 2000 });
       } else {
         toast.success("Order Successful");
         navigate("/");
@@ -87,7 +88,7 @@ const CheckOut = () => {
               </thead>
               <tbody>
                 {allCartItems.map((item, idx) => (
-                  <OrderCard item={item} key={idx} />
+                  <OrderCard item={item as TCart} key={idx} />
                 ))}
               </tbody>
             </table>

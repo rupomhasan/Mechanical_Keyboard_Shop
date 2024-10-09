@@ -1,6 +1,9 @@
 const Community = () => {
-  const handleSubmit = (data: string) => {
-    console.log(data);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+    console.log(email);
   };
   return (
     <div>

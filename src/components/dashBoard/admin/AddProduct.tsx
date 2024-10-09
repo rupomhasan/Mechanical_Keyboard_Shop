@@ -4,7 +4,10 @@ import FormInput from "../../form/FormInput";
 import { useGetAllBrandQuery } from "../../../redux/features/brandApi";
 import { toast } from "sonner";
 import { useCreateProductMutation } from "../../../redux/features/productsApi";
-import { TProducts } from "../../../types/product.types";
+import {
+  TAddProducts,
+  TFeatures,
+} from "../../../types/product.types";
 import { TBrand } from "../../../types/brand.types";
 
 const AddProduct = () => {
@@ -14,8 +17,27 @@ const AddProduct = () => {
   const [brand, setBrand] = useState("66cca524e2eee759f3f6a153");
   const [type, setType] = useState("standard");
   const [status, setStatus] = useState("instock");
+  type TProductData = {
+    name: string;
+    image: string;
+    quantity: number;
+    price: number;
+    discount?: number;
+    width: number;
+    height: number;
+    length: number;
+    weight: number;
+    keys?: number;
+    battery?: string;
+    mode?: string;
+    connectivity?: string;
+    lighting?: boolean;
+    Switch?: string;
+    SwitchLifecycle?: string;
+    size?: string;
+  };
 
-  const handleSubmit = async (data) => {
+  const handleSubmit = async (data: TProductData) => {
     console.log({ status, type });
 
     const {
@@ -45,22 +67,22 @@ const AddProduct = () => {
       height: Number(height),
     };
 
-    const features = {
+    const features: TFeatures = {
       size,
       keys: Number(keys),
       SwitchLifecycle,
       Switch,
       mode,
       battery,
-      lighting,
-      weight,
+      lighting: String(lighting),
+      weight: String(weight),
     };
 
-    const productInfo: TProducts = {
+    const productInfo: TAddProducts = {
       name,
       description,
       image,
-      brand,
+      brand: String(brand),
       status: status,
       type,
       productsQuantity: Number(quantity),
@@ -158,27 +180,9 @@ const AddProduct = () => {
             </div>
             <div>
               <label className="font-bold">Dimensions (L, W , H)cm:</label>
-              <FormInput
-                type="number"
-                name="length"
-                label="Length"
-                // value={product.dimensions.length}
-                // onChange={handleDimensionChange}
-              />
-              <FormInput
-                type="number"
-                name="width"
-                label="Width"
-                // value={product.dimensions.width}
-                // onChange={handleDimensionChange}
-              />
-              <FormInput
-                type="number"
-                name="height"
-                label="Height"
-                // value={product.dimensions.height}
-                // onChange={handleDimensionChange}
-              />
+              <FormInput type="number" name="length" label="Length" />
+              <FormInput type="number" name="width" label="Width" />
+              <FormInput type="number" name="height" label="Height" />
             </div>
           </div>
           <FormInput label="Product Image" type="text" name="image" />
@@ -190,14 +194,13 @@ const AddProduct = () => {
                 className="border w-full p-3 py-4  mt-2 rounded"
                 name="description "
                 rows={7}
-                // value={product.description}
                 placeholder="Write..."
                 onChange={(e) => setDescription(e.target.value)}
                 required
               />
             </div>
           </div>
-          {/* Add more fields for features, reviews, slug, etc. */}
+
           <button
             className="btn btn-sm bg-blue-500 text-white hover:bg-blue-600 w-full "
             type="submit"
