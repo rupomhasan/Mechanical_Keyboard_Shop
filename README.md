@@ -95,7 +95,7 @@ To start the development server:
 
 This project is the front end of the **Mechanical Keyboard Shop**, an e-commerce platform for purchasing mechanical keyboards. It provides a modern, responsive, and intuitive UI built using **React** and **TypeScript**. The project aims to deliver an optimal shopping experience with a fast, engaging, and scalable interface.
 
-**Live Demo:** [Mechanical Keyboard Shop](https://your-live-site-url.com](https://mechanical-keyboard-shop-client-six.vercel.app/)
+**Live Demo:** [Mechanical Keyboard Shop](https://mechanical-keyboard-shop-client-six.vercel.app)
 
 ## Tech Stack
 ...
